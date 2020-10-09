@@ -1,0 +1,229 @@
+﻿@import "scss/bootstrap";
+
+$break-small: 500px;
+
+
+
+
+.float-right {
+    float: right;
+
+    @media screen and (max-width: $break-small) {
+        float: left !important;
+    }
+}
+
+
+#top a {
+    display: inline-block;
+    padding: 0 5px;
+    color: #6c757d;
+}
+
+.topicon {
+    color: #326fc7;
+    padding-right: 5px;
+}
+
+.fa-graduation-cap:before, .fa-envelope:before, .fa-phone:before, .fa-facebook:before {
+    font-size: 17px;
+    vertical-align: middle;
+    margin-right: 5px;
+    color: #326fc7;
+}
+
+$font-stack: Calibri, sans-serif;
+
+$nav-color: white;
+$icons-color: #326fc7;
+
+body {
+    font: 90% $font-stack;
+}
+
+//navbar
+.navbar {
+    margin-top: 0;
+    font: 100% $font-stack;
+    background-color: $nav-color;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-nav .nav-item.active .nav-link, .navbar-nav .nav-item:hover .nav-link {
+    color: #000000 !important;
+}
+//
+
+.icons {
+    color: $icons-color;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #326fc7;
+    border-color: #326fc7;
+}
+
+.btn-outline-primary {
+    color: #3A5683;
+    background-color: transparent;
+    background-image: none;
+    border-color: #326fc7 !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #285697 !important;
+    border-color: #0062cc;
+}
+
+.btn {
+    font-weight: 400;
+    border: 1px solid transparent;
+    padding: .375rem 1rem;
+    font-size: .9rem;
+    line-height: 1.5;
+    border-radius: 0;
+    -webkit-transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-duration: .6s;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+    opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+}
+//First
+.zoom {
+    transition: transform .4s !important;
+}
+
+
+.zoom:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+
+h2 {
+    margin-top: 30px;
+}
+
+#First {
+    margin-top: -80px;
+    z-index: 10;
+    position: relative;
+    margin-bottom: 45px;
+}
+//
+
+//Second2
+.oneclass:hover {
+    text-decoration: none;
+}
+
+.icon {
+    font-size: 60px;
+    display: block !important;
+    line-height: 60px !important;
+    margin-bottom: 25px;
+    color: $icons-color;
+}
+//
+
+//Third
+
+/* [1] The container */
+.img-hover-zoom {
+    /* height: 250px [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+    transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+    transform: scale(1.5);
+}
+
+#Third {
+    overflow-y: auto !important;
+    margin-bottom: 10px;
+}
+//
+
+//footer
+footer.footer {
+    dl.contact-list a {
+        color: white;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    ul.nav-list a {
+        color: white;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .copyrights * {
+        margin-bottom: 0;
+    }
+
+    .copyrights {
+        padding: 1rem 0;
+        background: #1f4377;
+        margin-top: 1.3rem;
+    }
+
+
+    ul, ol {
+        list-style: none;
+        padding: 0;
+        margin-left: 5px;
+    }
+}
+
+
+
+.nav-list {
+    li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+
+    li a:hover:before {
+        margin-left: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+//

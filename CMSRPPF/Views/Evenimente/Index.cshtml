@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CMSRPPF.Areas.Admin.Models.EventsDTO>
+
+@{
+    ViewBag.Title = "";
+
+}
+
+<br />
+<div class="container">
+    <div class="evenimente" >
+        @foreach (var item in Model)
+        {
+            <div class="col-md-12" style="align-content:center">
+                <div id="@item.Id" class="row list-group" style="max-width:700px; margin:auto;">
+
+                    <div class=" grid-group-item list-group-item">
+                        <div class="thumbnail" style="text-align:center">
+
+                            <img id="imageHolder" class="img-fluid" src="@Url.Content(@item.FilePath)" alt="" width="500" />
+
+                        </div>
+
+                         <hr>
+
+                        <h4 class="group inner list-group-item-heading">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </h4>
+                        <p class="pull-right group inner list-group-item-text">
+                            Created on: @Html.DisplayFor(modelItem => item.Created)<br />
+                            Published by: @Html.DisplayFor(modelItem => item.User.UserName)
+                        </p>
+                        <hr />
+                        <p> @Html.Raw(item.Content) </p>
+
+                        
+
+                    </div>
+                    <br>
+
+                </div>
+
+                <br />
+            </div>
+
+        }
+    </div>
+</div>

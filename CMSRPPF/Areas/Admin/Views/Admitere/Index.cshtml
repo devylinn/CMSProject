@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CMSRPPF.Areas.Admin.Models.AdmitereViewModel>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Admitere</h2>
+<hr />
+@TempData["SMMM"]
+
+@if (User.IsInRole("Moderator"))
+{
+    <p>
+        <a href="@Url.Action("Create", "Admitere")" class="btn btn-primary rounded-0">
+            <i class="fa fa-plus-circle"></i> Add New
+        </a>
+
+    </p>
+}
+    <table id="myTable" class="table table-hover table-bordered table-sm " cellspacing="0" width="100%">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.UserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Created)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Edited)
+                </th>
+                @if (User.IsInRole("Moderator"))
+                {
+                    <th></th>
+                }
+                </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edited)
+            </td>
+            @if (User.IsInRole("Moderator"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+                </td>
+            }
+            </tr>
+        }
+
+    </table>
+

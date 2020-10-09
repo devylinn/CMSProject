@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Facultatea de Matematica si Informatica</title>
+
+    <link href="~/Content/Custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.10.1/js/all.js" data-auto-replace-svg="nest"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="top">
+        <div class="d-flex flex-column flex-md-row p-2 px-md-4 border-bottom ">
+            <div class="container">
+                <div class="float-left">
+                    <a href="#" target="_blank"><i class="fab fa-facebook topicon"></i>Facebook</a>
+                    <a href="/Informatii"><i class="fas fa-phone topicon"></i>Contact</a>
+
+                </div>
+                <div class="float-right ">
+                    <a href="#" target="_blank"><i class="fas fa-graduation-cap topicon"></i>UMS</a>
+                    <a href="#test@test.ro" target="_blank"><i class="fas fa-envelope topicon"></i>E-mail</a>
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="/"><img alt="Logo" src="~/Images/logo2.png" height="80" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto ">
+
+                    <li class="nav-item "><a class="nav-link text-secondary" @Html.ActionLink("Home", "Index", "Home")</a></li>
+                    <li class="nav-item "><a class="nav-link text-secondary" @Html.ActionLink("Informatii", "Index", "Informatii")</a></li>
+                    <li class="nav-item "><a class="nav-link text-secondary" @Html.ActionLink("Academic", "Index", "Academic")</a></li>
+                    <li class="nav-item "><a class="nav-link text-secondary" @Html.ActionLink("Admitere", "Index", "Admitere")</a></li>
+                    <li class="nav-item "><a class="nav-link text-secondary" @Html.ActionLink("Evenimente", "Index", "Evenimente")</a></li>
+
+
+
+                    @*@if (User.IsInRole("Administrator"))
+                        {
+
+                            <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                        }*@
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="body-content">
+        @RenderBody()
+
+
+    </div>
+
+    <footer id="footer" class="footer pb-0" style="background: #285697;color:white; padding-top:2rem;">
+        <div class="container">
+            <div class="row row-30">
+                <div class="col-md-4 col-xl-5">
+                    <div class="pr-xl-4">
+                        <h5>Info studenti</h5>
+
+                        <ul class="nav-list">
+                            <li><a href="#">Ghidul studentului</a></li>
+                            <li><a href="#">Structura anului universitar</a></li>
+                            <li><a href="#">Info camine/cazare</a></li>
+                            <li><a href="#">Acte de studii</a></li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <dl class="contact-list">
+                        <dt>Adresa:</dt>
+                        <dd>Lorem Ipsum Sit Dolor Amet</dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Email:</dt>
+                        <dd><a href="mailto:#">test@test.ro</a></dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Telefon:</dt>
+                        <dd>
+                            <a href="tel:#">0123 456789</a>
+                        </dd>
+                    </dl>
+
+                    <dl class="contact-list">
+                        <dt>Fax:</dt>
+                        <dd>
+                            <a href="fax:#">0123 456789</a>
+                        </dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Program de lucru cu publicul:</dt>
+                        <dd>
+                        <dd>Luni - Vineri: 10<sup>00</sup> - 12<sup>00</sup></dd>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-4 col-xl-3">
+                    <h5>Links</h5>
+                    <ul class="nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/Informatii">Informatii</a></li>
+                        <li><a href="/Academic">Academic</a></li>
+                        <li><a href="/Admitere">Admitere</a></li>
+                        <li><a href="/Evenimente">Evenimente</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyrights">
+            <div class="container text-center">
+                <p>&copy; @DateTime.Now.Year - CMSRPPF</p>
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

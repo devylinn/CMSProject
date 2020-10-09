@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CMSRPPF.Areas.Admin.Models.EventsDTO>
+
+<div data-aos="fade-up" id="Third" class="container">
+    <div class="row">
+        <div class="container text-center">
+            <h2> < Evenimente /></h2>
+            <br />
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="img-hover-zoom">
+                        <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="@Url.Content(@item.FilePath)" />
+                    </div>
+
+                    <div class="card-body">
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Title)</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="/Evenimente/#@item.Id" class="btn btn btn-outline-primary">Citeste</a>
+                            </div>
+                            <small class="text-transform">@Html.DisplayFor(modelItem => item.Created)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md text-center ">
+                <a href="/Evenimente" class="btn btn-primary" style="background-color:#326fc7;">Vezi mai multe</a>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+

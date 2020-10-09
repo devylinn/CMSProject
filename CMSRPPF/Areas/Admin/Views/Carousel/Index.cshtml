@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Carousel";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload Slider Image</title>
+
+
+    <style>
+        .carousel-inner img {
+            width: 100%;
+            height: 350px;
+        }
+
+  
+         input[value="Delete"] {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+            <div class="carousel-inner" role="listbox">
+
+
+                @{int i = 0;}
+                @foreach (var item in Model)
+                {
+                    i++;
+                    var active = i == 1 ? "active" : "";
+                    <div class="carousel-item @active">
+                        <img src="@Url.Content(@item.FilePath)" alt="">
+                    </div>
+                }
+
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <br />
+        </div>
+    </div>
+    <hr />
+    @if (User.IsInRole("Moderator"))
+    {
+        <button style="margin-bottom:10px;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-plus-circle"></i> Add New
+        </button>
+    }
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Upload New Image</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("Index", "Carousel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="form-group">
+                                <label>Choose File:</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" id="fileupload" name="fileupload" required />
+
+                                    </div>
+
+                                    <input type="submit" id="btnUpload" class="btn btn-primary" value="Upload" />
+
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <table id="myTable" class="table table-hover table-bordered table-sm ">
+            <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>File Size(KB)</th>
+                    <th>Images</th>
+                    @if (User.IsInRole("Moderator"))
+                    {
+                        <th>Action</th>
+                    }
+                    </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    using (Html.BeginForm("Delete", "Carousel", new { id = item.ID }))
+                    {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Name</td>
+                    <td>@item.FileSize</td>
+                    <td>
+                        <img src="@Url.Content(@item.FilePath)" alt="" width="80" height="60" class="img-thumbnail" />
+                    </td>
+                    @if (User.IsInRole("Moderator"))
+                    {
+                        <td>
+
+                            <input type="submit" class="btn-link" value="Delete" onclick="return confirm('Are you sure you want to delete record with ID = @item.ID');" />
+                        </td>
+                    }
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+
+    </body>
+
+</html>  

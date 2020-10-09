@@ -1,0 +1,102 @@
+﻿@{
+    Html.RenderAction("_Carousel", "Home");
+}
+<div data-aos="fade-up" id="First" class="container" >
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row border-bottom" style="padding-bottom:25px;">
+        <div class="col-lg-4 text-center">
+
+            <a href="/Admitere">
+                <span class="fa-stack fa-5x zoom">
+                    <i class="fa fa-circle fa-stack-2x icons"></i>
+                    <i class="fa fa-book-reader fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+
+            <h2>< Admitere /></h2>
+            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center">
+
+            <a href="/Academic">
+                <span class="fa-stack fa-5x zoom ">
+                    <i class="fa fa-circle fa-stack-2x icons"></i>
+                    <i class="fa fa-university fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+
+            <h2>< Academic /></h2>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. </p>
+
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4 text-center">
+
+            <a href="/Studenti">
+                <span class="fa-stack fa-5x zoom ">
+                    <i class="fa fa-circle fa-stack-2x icons"></i>
+                    <i class="fa fa-user-graduate fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+
+            <h2>< Studenti /></h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. </p>
+
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+</div>
+
+
+<div data-aos="fade-up" id="Second" class="container text-center ">
+    <img src="~/Images/logo.png" />
+    <header>
+        <h2>< Facultatea de Matematica si Informatica /></h2>
+    </header>
+    <br />
+    <div class="row">
+        <p class="col-lg-8 mx-auto">Asigură o formare continuă celor interesați în a urma o carieră în domeniul matematicii sau informaticii. Un număr limitat de burse este oferit în fiecare an studenților merituoși și celor ce au nevoie de ajutor social. Studenții pot să desfășoare activități cultural-sportive la prețuri reduse: sport (la clubul nautic), teatru, filarmonică și operă. Ei se pot conecta cu studenții din întreaga lume, prin rețeaua INTERNET a Universității, dedicată activităților didactice, științifice și culturale.</p>
+    </div>
+    <br />
+</div>
+
+<div data-aos="fade-up" id="Second2" class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <a class="oneclass" href="/Informatii">
+                <i class="fas fa-info-circle icon zoom"></i>
+            </a>
+            <h5>< Informatii /></h5>
+            <p>Vezi mai multe informatii despre FMI.</p>
+
+        </div>
+        <div class="col-md-4 text-center">
+            <a class="oneclass" href="/Personal">
+                <i class="fas fa-users icon zoom"></i>
+            </a>
+            <h5>< Personal /></h5>
+            <p>Vezi personalul departamentului de Matematica si Informatica. </p>
+
+        </div>
+        <div class="col-md-4 text-center ">
+            <a class="oneclass" href="/Cercetare">
+                <i class="fas fa-code-branch icon zoom"></i>
+            </a>
+            <h5>< Cercetare /></h5>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+        </div>
+    </div>
+
+    <hr>
+
+</div>
+
+
+@{
+    Html.RenderAction("_Evenimente", "Home");
+}

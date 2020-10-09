@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "float-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Dashboard", routeValues: new { area = "Admin" }, htmlAttributes: new { title = "Manage" })
+        
+           
+    }
+}
+else
+{
+   
+     
+       @Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "Admin" }, htmlAttributes: new { id = "loginLink" })
+    
+}

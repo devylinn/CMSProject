@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Content/Custom.css",
+    "inputFile": "Content/Custom.scss"
+  },
+  {
+    "outputFile": "Content/Dasboard.css",
+    "inputFile": "Content/Dasboard.scss"
+  },
+  {
+    "outputFile": "Content/Dashboard.css",
+    "inputFile": "Content/Dashboard.scss"
+  }
+]

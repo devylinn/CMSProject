@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Facultatea de Matematica si Informatica</title>
+
+    <link href="~/Content/Custom.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/fe3f30071e.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="top">
+        <div class="d-flex flex-column flex-md-row p-2 px-md-4 border-bottom ">
+            <div class="container">
+                <div class="float-left">
+                    <a href="#"><i class="fab fa-facebook"></i>Facebook</a>
+                    <a href="/contact"><i class="fas fa-phone"></i>Contact</a>
+
+                </div>
+                <div class="float-right ">
+                    <a href="https://carnet.univ-ovidius.ro/auth/login" target="_blank"><i class="fas fa-graduation-cap"></i>UMS</a>
+                    <a href="#mateinfo@univ-ovidius.ro" target="_blank"><i class="fas fa-envelope"></i>E-mail</a>
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="/"><img alt="Logo" src="~/Images/logo2.png" height="80" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto ">
+
+
+                 
+
+
+
+                    @*@if (User.IsInRole("Administrator"))
+        {
+
+            <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+        }*@
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div class="body-content">
+        @RenderBody()
+
+
+    </div>
+
+    <footer id="footer" class="footer pb-0" style="background: #285697;color:white; padding-top:50px;">
+        <div class="container">
+            <div class="row row-30">
+                <div class="col-md-4 col-xl-5">
+                    <div class="pr-xl-4">
+                        <h5>Info studenti</h5>
+
+                        <ul class="nav-list">
+                            <li><a href="#">Ghidul studentului</a></li>
+                            <li><a href="#">Structura anului universitar</a></li>
+                            <li><a href="#">Info camine/cazare</a></li>
+                            <li><a href="#">Acte de studii</a></li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <dl class="contact-list">
+                        <dt>Adresa:</dt>
+                        <dd>Bd. Mamaia 124, Biblioteca Virtuală, Etaj 1, 900527 Constanţa</dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Email:</dt>
+                        <dd><a href="mailto:#">mateinfo@univ-ovidius.ro</a></dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Telefon:</dt>
+                        <dd>
+                            <a href="tel:#">(+4) 0241 606424</a>
+                        </dd>
+                    </dl>
+
+                    <dl class="contact-list">
+                        <dt>Fax:</dt>
+                        <dd>
+                            <a href="fax:#">(+4) 0241 606467</a>
+                        </dd>
+                    </dl>
+                    <dl class="contact-list">
+                        <dt>Program de lucru cu publicul:</dt>
+                        <dd>
+                        <dd>Luni - Vineri: 10<sup>00</sup> - 12<sup>00</sup></dd>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-4 col-xl-3">
+                    <h5>Links</h5>
+                    <ul class="nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Informatii</a></li>
+                        <li><a href="#">Admitere</a></li>
+                        <li><a href="#">Cercetare</a></li>
+                        <li><a href="#">Academic</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyrights">
+            <div class="container text-center">
+                <p>&copy; @DateTime.Now.Year - Facultatea de Matematica si Informatica</p>
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

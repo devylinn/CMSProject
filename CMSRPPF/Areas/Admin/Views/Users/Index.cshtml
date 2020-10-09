@@ -1,0 +1,99 @@
+﻿@model  IPagedList<CMSRPPF.Areas.Admin.Models.UsersViewModel>
+
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Manage Users";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Users</h2>
+<hr />
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a href="@Url.Action("Create", "Users")" class="btn btn-primary rounded-0">
+            <i class="fa fa-plus-circle"></i> Add New
+        </a> |
+        <a href="@Url.Action("AddRole", "Users")" class="btn btn-primary rounded-0">
+            <i class="fa fa-plus-circle"></i> Add Role
+        </a> |
+        <a href="@Url.Action("RemoveRole", "Users")" class="btn btn-primary rounded-0">
+            <i class="fa fa-minus-circle"></i> Remove Role
+        </a>
+    </p>
+}
+
+    <table id="myTable" class="table table-hover table-bordered table-sm  " cellspacing="0" width="100%">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(_ => Model[0].UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(_ => Model[0].Email)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(_ => Model[0].Role)
+                </th>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <th></th>
+                }
+                </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @foreach (var role in item.Role)
+                {
+                    // <li style=" display:inline;"> @role  </li>
+                    <div> @role  </div>
+
+                }
+            </td>
+            @if (User.IsInRole("Administrator"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            }
+            </tr>
+                
+            }
+
+    </table>
+    <br />
+
+    <!--
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+    {
+        DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+        DisplayLinkToLastPage = PagedListDisplayMode.Always,
+        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+        FunctionToTransformEachPageLink = (liTag, aTag) =>
+        {
+            aTag.Attributes.Add("class", "page-link");
+            liTag.InnerHtml = aTag.ToString();
+            return liTag;
+        },
+        ContainerDivClasses = new[] { "pagination-container" },
+        UlElementClasses = new[] { "pagination" },
+        LiElementClasses = new[] { "page-item" }
+    }
+    )
+        -->
